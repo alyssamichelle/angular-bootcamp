@@ -1,0 +1,12 @@
+ul.video-list {
+  height: 400px;
+  width: 300px;
+  overflow: scroll;
+  list-style-type: none;
+  background-color: #f2f2f2;
+  
+}
+
+.selected {
+  background-color: pink;
+}
