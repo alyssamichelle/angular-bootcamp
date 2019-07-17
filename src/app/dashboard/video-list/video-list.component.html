@@ -1,10 +1,9 @@
 <ul class="video-list">
-  <li *ngFor="let video of list; index as i" class="video-{{i}}" (click)="selected = video" [class.selected]="selected === video" >
-  <!-- <li *ngFor="let video of list; index as i" class="video-{{i}}" (click)="!selected" [class.selected]="video === selected" > -->
-    <p>{{selected}}</p>
-    <h2>{{video.title}}</h2>
-    <h3>{{video.author}}</h3>
-    <p>{{video.id}}</p>
-  </li>
+  <app-video-thumbnail 
+    *ngFor="let v of videoList" 
+    (click)="pickVideo(v)"
+    [class.selected]="selected === v"
+    [video]="v"
+  ></app-video-thumbnail>
 
 </ul>

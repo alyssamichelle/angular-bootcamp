@@ -1,7 +1,9 @@
 <h1>DASHBOARD</h1>
 
 <div class="dashboard-wrapper">
-  <app-video-list></app-video-list>
-  <app-video-player></app-video-player>
+  <app-video-list 
+  [videoList]="videoData | async"
+  (selectVideo)="setVideo($event)"></app-video-list>
+  <app-video-player [video]="video"></app-video-player>
   <app-stat-filters></app-stat-filters>
 </div>

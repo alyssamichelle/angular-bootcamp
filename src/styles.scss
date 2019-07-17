@@ -3,3 +3,13 @@
 app-stat-filters, app-video-list {
   background-color: #f2f2f2;
 }
+
+app-video-list ul {
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+}
+
+app-video-thumbnail {
+  display: block;
+}

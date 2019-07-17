@@ -1,2 +1,7 @@
-<iframe width="560" height="315" src="https://www.youtube.com/embed/r2b2bvkjRcI" frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/r2b2bvkjRcI" frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+<ng-container *ngIf="video">
+  <h1>{{video.title}}</h1>
+  <h2>{{video.author}}</h2>
+</ng-container>

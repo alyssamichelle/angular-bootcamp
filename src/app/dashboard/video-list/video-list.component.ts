@@ -1,192 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Video } from '../../../types';
 
-const videoList = [
-  {
-    "title": "Angular Observable Data Flow",
-    "author": "Kyle Cordes",
-    "id": "JPuqluYYa-o",
-    "viewDetails": [
-      {
-        "age": 17,
-        "region": "North America",
-        "date": "2016-03-23"
-      },
-      {
-        "age": 27,
-        "region": "North America",
-        "date": "2016-03-23"
-      },
-      {
-        "age": 37,
-        "region": "North America",
-        "date": "2016-03-23"
-      },
-      {
-        "age": 47,
-        "region": "Europe",
-        "date": "2016-03-24"
-      },
-      {
-        "age": 37,
-        "region": "North America",
-        "date": "2016-03-24"
-      },
-      {
-        "age": 17,
-        "region": "North America",
-        "date": "2016-03-25"
-      }
-    ]
-  },
-  {
-    "title": "Angular Performance Checklist",
-    "author": "Paul Spears",
-    "id": "cxqRijt9LbQ",
-    "viewDetails": [
-      {
-        "age": 36,
-        "region": "North America",
-        "date": "2016-06-23"
-      },
-      {
-        "age": 30,
-        "region": "North America",
-        "date": "2016-06-23"
-      },
-      {
-        "age": 54,
-        "region": "North America",
-        "date": "2016-07-23"
-      },
-      {
-        "age": 43,
-        "region": "Europe",
-        "date": "2016-0-24"
-      },
-      {
-        "age": 32,
-        "region": "North America",
-        "date": "2016-08-24"
-      },
-      {
-        "age": 32,
-        "region": "North America",
-        "date": "2016-08-25"
-      }
-    ]
-  },
-  {
-    "title": "Live App Updates Without The App Store",
-    "author": "Sani Yusuf",
-    "id": "s10wrXA-a7Y",
-    "viewDetails": [
-      {
-        "age": 17,
-        "region": "North America",
-        "date": "2016-03-23"
-      },
-      {
-        "age": 27,
-        "region": "North America",
-        "date": "2016-03-23"
-      },
-      {
-        "age": 37,
-        "region": "North America",
-        "date": "2016-03-23"
-      },
-      {
-        "age": 47,
-        "region": "Europe",
-        "date": "2016-03-24"
-      },
-      {
-        "age": 37,
-        "region": "North America",
-        "date": "2016-03-24"
-      },
-      {
-        "age": 17,
-        "region": "North America",
-        "date": "2016-03-25"
-      }
-    ]
-  },
-  {
-    "title": "Angular Reactive Forms",
-    "author": "Jack Balbes",
-    "id": "A_Rq6ZsoXpI",
-    "viewDetails": [
-      {
-        "age": 36,
-        "region": "North America",
-        "date": "2016-06-23"
-      },
-      {
-        "age": 30,
-        "region": "North America",
-        "date": "2016-06-23"
-      },
-      {
-        "age": 54,
-        "region": "North America",
-        "date": "2016-07-23"
-      },
-      {
-        "age": 43,
-        "region": "Europe",
-        "date": "2016-0-24"
-      },
-      {
-        "age": 32,
-        "region": "North America",
-        "date": "2016-08-24"
-      },
-      {
-        "age": 32,
-        "region": "North America",
-        "date": "2016-08-25"
-      }
-    ]
-  },
-  {
-    "title": "Imperative to Reactive with Angular and RxJS",
-    "author": "John Baur",
-    "id": "VJOPsjlbhdg",
-    "viewDetails": [
-      {
-        "age": 17,
-        "region": "North America",
-        "date": "2016-03-23"
-      },
-      {
-        "age": 27,
-        "region": "North America",
-        "date": "2016-03-23"
-      },
-      {
-        "age": 37,
-        "region": "North America",
-        "date": "2016-03-23"
-      },
-      {
-        "age": 47,
-        "region": "Europe",
-        "date": "2016-03-24"
-      },
-      {
-        "age": 37,
-        "region": "North America",
-        "date": "2016-03-24"
-      },
-      {
-        "age": 17,
-        "region": "North America",
-        "date": "2016-03-25"
-      }
-    ]
-  }
-];
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-video-list',
@@ -194,17 +8,18 @@ const videoList = [
   styleUrls: ['./video-list.component.scss']
 })
 
-export class VideoListComponent implements OnInit {
-  selected: Object | undefined;
-  list = videoList;
+export class VideoListComponent {
+  @Input() videoList: Video[];
 
-  // toggleSelected(selected) {
-  //   selected = !selected;
-  //   console.log('selected!');
-  // }
-  constructor() { }
+  @Output() selectVideo = new EventEmitter<Video>();
+  selected;
 
-  ngOnInit() {
-  }
+  pickVideo(video) {
+    this.selectVideo.emit(video);
+
+    this.selected = video;
+    console.log('hello from the list comp');
+  };
+
 
 }
