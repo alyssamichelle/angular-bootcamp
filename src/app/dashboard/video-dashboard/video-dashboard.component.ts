@@ -13,23 +13,16 @@ import { tap } from 'rxjs/operators';
 export class VideoDashboardComponent {
   videoData: Observable<Video[]>;
   video;
-  firstVideo;
-
-  setVideo(video: Video, firstVideo: Video) {
-    // if (video) {
-    //   this.video = video;
-    // } else {
-    //   this.video = firstVideo;
-    // }
-    this.video = video;
-    console.log('hello from the dashboard');
-  }
 
   constructor(service: VideoLoaderService) {
     this.videoData = service.loadVideos()
-      .pipe(tap(data => this.firstVideo = data[0])); // why I no have firstVideo?
+      .pipe(
+        tap(data => this.video = data[0]),
+      );
 
+  }
 
-    console.log('firstVideo: ', this.firstVideo);
+  setVideo(video: Video) {
+    this.video = video;
   }
 }

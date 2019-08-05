@@ -7,6 +7,8 @@ import { StatFiltersComponent } from './stat-filters/stat-filters.component';
 import { RouterModule, Routes } from '@angular/router';
 import { VideoThumbnailComponent } from '../video-thumbnail/video-thumbnail.component';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 const routes: Routes = [
   { path: '', component: VideoDashboardComponent, pathMatch: 'full' },
 ];
@@ -16,6 +18,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    ReactiveFormsModule,
   ]
 })
 export class DashboardModule { }

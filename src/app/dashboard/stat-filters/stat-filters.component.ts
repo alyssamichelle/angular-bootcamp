@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-stat-filters',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stat-filters.component.scss']
 })
 export class StatFiltersComponent implements OnInit {
-
-  constructor() { }
+  // fg: FormGroup;
+  // constructor(formBuilder: FormBuilder) {
+  //   this.fg = formBuilder.group({
+  //     videoTitle: ['Paul', Validators.minLength(3)]
+  //   });
+  // }
 
   ngOnInit() {
   }
